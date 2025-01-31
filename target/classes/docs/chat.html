@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+</html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Code Assistant - Your intelligent coding companion">
+    <link rel="icon" href="data:,">
+    <title>title</title>
+
+    <!-- Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Noto Serif Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- JetBrains Mono Font for Code -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Syntax Highlighting -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/tokyo-night-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+
+    <!-- Custom Styles -->
+        <link rel="stylesheet" href="/static/css/style.css">
+<!--    <link rel="stylesheet" th:href="@{/css/style.css}">-->
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="header-content">
+                <div class="model-select-container">
+                    <div class="emoji-and-selector">
+                        <p class="hypno">a</p>
+                        <div>
+                            <button class="model-select-button" aria-haspopup="listbox" aria-expanded="false">
+                                <span class="selected-value">Claude</span>
+                                <svg class="dropdown-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9l6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <ul class="model-select" role="listbox" tabindex="-1">
+                                <li role="option" data-value="claude" class="selected">
+                                    Claude
+                                </li>
+                                <li role="option" data-value="chatgpt">
+                                    ChatGPT
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+<!--                <h1>🕵💀🌑</h1>-->
+                <div class="status-indicator">
+                    <div class="pulse"></div>
+                    <span id="status-text">Ready</span>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                        <div class="sun-and-moon">
+                            <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="chat-wrapper">
+                <div id="chat-messages" class="chat-container">
+                    <!-- Messages will be inserted here -->
+                </div>
+            </div>
+
+            <div class="bottom-wrapper-container">
+                <div class="bottom-wrapper">
+                    <div class="suggestions">
+                        <button onclick="suggestQuery('\n write me a short hello world java code')">
+                            <span>HTTP Handler</span>
+                        </button>
+                        <button onclick="suggestQuery('\ngive me a few math formulas, i want to see the formatting')">
+                            <span> Design Patterns</span>
+                        </button>
+                        <button onclick="suggestQuery('\ngive me a short list of ingredient, nested or whatever, i want to test my formatting')">
+                            <span> Optimize Code</span>
+                        </button>
+                    </div>
+
+                    <div class="input-container">
+                        <div class="input-wrapper">
+                    <textarea id="user-input" placeholder="Type your message..." rows="1"
+                              style="overflow-y: hidden; resize: none; min-height: 80px; max-height: 400px;"></textarea>
+                            <button id="send-button" onclick="sendMessage()">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                     fill="#e8eaed">
+                                    <path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+<!--     Update the JavaScript path -->
+    <script src="/static/js/chat.js"></script>
+<!--    <script th:src="@{/js/chat.js}"></script>-->
+</body>
+
+</html>
